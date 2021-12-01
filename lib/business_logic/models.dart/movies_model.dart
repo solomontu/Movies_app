@@ -1,13 +1,13 @@
 
 
 import 'dart:convert';
+//I THIS MODEL CLASS WAS NOT USED IN THIS APPLICATION
+MovviesModel MovviesModelFromJson(String str) => MovviesModel.fromJson(json.decode(str));
 
-Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
+String MovviesModelToJson(MovviesModel data) => json.encode(data.toJson());
 
-String welcomeToJson(Welcome data) => json.encode(data.toJson());
-
-class Welcome {
-    Welcome({
+class MovviesModel {
+    MovviesModel({
         this.adult,
         this.backdropPath,
         this.genreIds,
@@ -39,7 +39,7 @@ class Welcome {
     double? voteAverage;
     int? voteCount;
 
-    factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+    factory MovviesModel.fromJson(Map<String, dynamic> json) => MovviesModel(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),

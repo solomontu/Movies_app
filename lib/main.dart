@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Book Movie',
       theme: ThemeData(
-       backgroundColor: const Color(0xFF70aaae),
+       backgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(color: Color(0xFF1f1f25)),
-        // primarySwatch: Colors.blue,
+        primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Book Movie'),
     );

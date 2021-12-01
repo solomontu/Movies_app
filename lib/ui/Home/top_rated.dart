@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:flutter/material.dart';
 import 'package:movies/business_logic/models.dart/services/service_locator.dart';
 import 'package:movies/business_logic/models.dart/view_model/movies_view_model.dart';
