@@ -9,8 +9,9 @@ class MovieServices {
   http.Client? httpClient;
   MovieServices() : httpClient = http.Client();
 
-  Future<http.Response?> getPopularMovies(String token) async {
-    Uri url = Uri.parse("$popularMovieKey");
+  Future<http.Response?> getPopularMovies(String token, String _url) async {
+    Uri url = Uri.parse(_url);
+//    Uri url = Uri.parse("$popularMovieKey");
     final client = RetryClient(httpClient!);
     http.Response? response;
     try {
@@ -22,6 +23,7 @@ class MovieServices {
       print("Error getting movies");
     }
     // print('THE RESPONS IS:${response!.body}');
+
     return response;
   }
 

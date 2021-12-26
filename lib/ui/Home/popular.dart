@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movies/business_logic/models.dart/services/movie.dart';
 import 'package:movies/business_logic/models.dart/services/service_locator.dart';
 import 'package:movies/business_logic/models.dart/view_model/movies_view_model.dart';
 import 'package:movies/ui/Home/uitil_widgets/coommon.dart';
@@ -19,6 +20,19 @@ class _PopularState extends State<Popular> {
   Future<Map<String, dynamic>?>? getPopularMovies() async {
     _moviesDataFuture = _movieViewModel.getPopularMovies(token);
     return _moviesDataFuture;
+  }
+
+  void getMoveies() async {
+    await getmovies(token).then((value) {
+      value.data!.results!.forEach((element) {
+        print(element.title);
+      });
+    });
+  }
+
+  void initState() {
+    getMoveies();
+    super.initState();
   }
 
   @override
@@ -46,6 +60,4 @@ class _PopularState extends State<Popular> {
       ),
     );
   }
-
-
 }
