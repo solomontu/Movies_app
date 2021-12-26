@@ -6,6 +6,7 @@ import 'package:movies/business_logic/models.dart/services/movie_services.dart';
 
 class MovieViewModel {
   MovieServices? _movieServices;
+
   String? errorStatus;
 
   MovieViewModel() {
@@ -20,7 +21,8 @@ class MovieViewModel {
     Map<String, dynamic>? responseData;
     if (response!.statusCode == 200) {
       responseData = await jsonDecode(response.body);
-      print('THE VIEW MODEL RESPONS IS:${response.body.length}');
+
+      // print('THE VIEW MODEL RESPONS IS:${response.body}');
     } else {
       errorStatus = response.body;
       print('THE ERROR STATUS IS: $errorStatus');
@@ -94,7 +96,7 @@ class MovieViewModel {
     return responseData;
   }
 
-  //GET TOP Upcomong MOVIES
+  //GET UpcomIng MOVIES
   Future<Map<String, dynamic>?> getUpComingMovies(String token) async {
     http.Response? response = await _movieServices!.getUpcomingMovies(token);
     Map<String, dynamic>? responseData;
